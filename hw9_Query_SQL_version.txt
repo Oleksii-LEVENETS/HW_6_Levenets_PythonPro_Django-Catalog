@@ -62,7 +62,7 @@ Out[1]: SELECT "catalog_client"."id",
 Execution time: 0.000758s [Database: default]
 <QuerySet [<Client: Oleksii Levenets>, <Client: Andrii Andriienko>]>
 
-#3.1 Все продукты, которые покупает клиент с индексом 1
+#3.2 Все продукты, которые покупает клиент с индексом 1
 In [2]: Product.objects.filter(client__id=1)
 Out[2]: SELECT "catalog_product"."id",
        "catalog_product"."title",
