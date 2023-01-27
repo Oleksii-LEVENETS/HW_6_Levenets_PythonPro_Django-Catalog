@@ -1,0 +1,78 @@
+#1. Все клиенты в городе с индексом 1, имена которых Алексей или Андрей
+In [1]: city = City.objects.get(id=1)
+SELECT "catalog_city"."id",
+       "catalog_city"."name",
+       "catalog_city"."state"
+  FROM "catalog_city"
+ WHERE "catalog_city"."id" = 1
+ LIMIT 21
+
+Execution time: 0.000583s [Database: default]
+
+In [2]: city.client_set.filter(first_name__in=["Oleksii", "Andrii"])
+Out[2]: SELECT "catalog_client"."id",
+       "catalog_client"."first_name",
+       "catalog_client"."last_name",
+       "catalog_client"."email",
+       "catalog_client"."city_id"
+  FROM "catalog_client"
+ WHERE ("catalog_client"."city_id" = 1 AND "catalog_client"."first_name" IN ('Oleksii', 'Andrii'))
+ LIMIT 21
+
+Execution time: 0.000296s [Database: default]
+<QuerySet [<Client: Oleksii Levenets>, <Client: Andrii Andriienko>]>
+
+
+#2. В каком городе работает поставщик с названием Сильпо
+In [1]: supplier = Supplier.objects.get(title="Silpo")
+SELECT "catalog_supplier"."title",
+       "catalog_supplier"."email",
+       "catalog_supplier"."city_id"
+  FROM "catalog_supplier"
+ WHERE "catalog_supplier"."title" = 'Silpo'
+ LIMIT 21
+
+Execution time: 0.000472s [Database: default]
+
+In [2]: supplier.city
+SELECT "catalog_city"."id",
+       "catalog_city"."name",
+       "catalog_city"."state"
+  FROM "catalog_city"
+ WHERE "catalog_city"."id" = 3
+ LIMIT 21
+
+Execution time: 0.000260s [Database: default]
+Out[2]: <City: Los Angeles/California>
+
+
+#3.1 Все клиенты, которые покупают продукт с индексом 2
+In [1]: Client.objects.filter(products__id=2)
+Out[1]: SELECT "catalog_client"."id",
+       "catalog_client"."first_name",
+       "catalog_client"."last_name",
+       "catalog_client"."email",
+       "catalog_client"."city_id"
+  FROM "catalog_client"
+ INNER JOIN "catalog_client_products"
+    ON ("catalog_client"."id" = "catalog_client_products"."client_id")
+ WHERE "catalog_client_products"."product_id" = 2
+ LIMIT 21
+
+Execution time: 0.000758s [Database: default]
+<QuerySet [<Client: Oleksii Levenets>, <Client: Andrii Andriienko>]>
+
+#3.2 Все продукты, которые покупает клиент с индексом 1
+In [2]: Product.objects.filter(client__id=1)
+Out[2]: SELECT "catalog_product"."id",
+       "catalog_product"."title",
+       "catalog_product"."vendor_code",
+       "catalog_product"."exp_date"
+  FROM "catalog_product"
+ INNER JOIN "catalog_client_products"
+    ON ("catalog_product"."id" = "catalog_client_products"."product_id")
+ WHERE "catalog_client_products"."client_id" = 1
+ LIMIT 21
+
+Execution time: 0.001553s [Database: default]
+<QuerySet [<Product: Milk(12yt345gvj6fjhgvct)>, <Product: Sugar(765gjhv44mnb4hm4)>]>
