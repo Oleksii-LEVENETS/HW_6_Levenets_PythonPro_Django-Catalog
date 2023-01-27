@@ -9,6 +9,7 @@ python manage.py create_users 3.
 
 """
 
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from django.template.defaultfilters import pluralize
@@ -25,15 +26,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         fake = Faker()
-        objs = [
-            User(
-                username=fake.name(),
-                email=fake.email(),
-                password=fake.password()
-            )
-            for user in range(1, options['count_of_users'] + 1)
-        ]
-        User.objects.bulk_create(objs)
+        list_users = []
+        for u in range(options['count_of_users']):
+            name = fake.name()
+            first_name = name.split(' ')[0]
+            last_name = name.split(' ')[-1]
+            username = first_name.lower() + last_name.lower()
+            email = username + "@" + last_name.lower() + ".com"
+            password = fake.password()
+            list_users.append(User(username=username, password=make_password(password), email=email,
+                                   first_name=first_name, last_name=last_name))
 
+        User.objects.bulk_create(list_users)
         self.stdout.write(self.style.SUCCESS(f"Successfully created {options['count_of_users']} "
                                              f"user{pluralize(options['count_of_users'])}!"))
