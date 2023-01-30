@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangle</title>
+</head>
+<body>
+    <form action="/mess_app/triangle/" method="GET">
+        {% if gipo %}
+            <p> гипотенуза равна {{ gipo }}</p>
+        {% else %}
+            {{ form.as_p }}
+        {% endif %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
