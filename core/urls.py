@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('catalog/', include('catalog.urls')),
+    path('mess_app/', include('mess_app.urls')),
 ]
