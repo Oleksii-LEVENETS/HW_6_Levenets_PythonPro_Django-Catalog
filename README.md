@@ -1,4 +1,25 @@
-# HW_6-7-8-9-10_Levenets_PythonPro_Django-Catalog
+# HW_6-7-8-9-10-11_Levenets_PythonPro_Django-Catalog
+========================================
+ДЗ 11. Django model form
+Створено: 27.01.2023 21:28
+Заняття 12. Django model forms
+
+1. Создать новую модель с несколькими полями (в том же приложении, где и форма для расчета гипотенузы).
+2. Создать миграцию и мигрировать.
+Person
+first_name - charfield
+last_name - charfield
+email - emailfield
+3. Создать modelform, view, template для - создания новой записи, и для редактирования существующей записи.
+/person - GET - получить форму
+/person - POST - отвалидировать и сохранить новый объект Person в базу
+/person/<id:int> - GET - получить форму с данными Person, или 404 если пользователя с таким id не существует
+/person/<id:int> - POST - обновить данные Person, или 404
+
+- используйте instance= для инициализации формы с данными person
+- используйте get_or_404 для того что бы быстро получить Person или вызвать ошибку
+https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#get-object-or-404
+
 ========================================
 ДЗ 10. Django Forms
 Створено: 24.01.2023 21:33
@@ -120,6 +141,6 @@ https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata (секция Restor
 5. Создать requirements.txt (или Pipfile + Pipfile.lock в зависимости от используемого).
 6. Создать django приложение catalog (python manage.py startapp <app_name>) и добавить его в INSTALLED_APPS
 7. Убедиться что SECRET_KEY будет взят из переменных окружения и НЕ будет храниться в репозитории
-   (os.environ.get("SECRET_KEY", "<def value>")).
+   (os.environ.get("SECRET_KEY", "<def self>")).
 8. README.md - описать проект.
 Жду ссылки на репозиторий.

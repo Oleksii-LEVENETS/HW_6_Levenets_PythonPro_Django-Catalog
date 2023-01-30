@@ -3,15 +3,15 @@ max-line-length = 119
 exclude =
     # No need to traverse our git directory
     .git,
-    # There's no value in checking cache directories
+    # There's no self in checking cache directories
     __pycache__,
-    # There's no value in checking .venv directory
+    # There's no self in checking .venv directory
     .venv,
-    # There's no value in checking migrations directory
+    # There's no self in checking migrations directory
     *migrations*,
-    # There's no value in checking tests.py file
+    # There's no self in checking tests.py file
     tests.py,
-    # There's no value in checking tests directory
+    # There's no self in checking tests directory
     tests
     # No need to traverse my sandbox :)
     sandbox.py

@@ -1,3 +1,5 @@
+from math import pow, sqrt
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -15,10 +17,10 @@ def triangle(request):
     if form.is_valid():
         leg_a = int(request.GET["leg_a"])
         leg_b = int(request.GET["leg_b"])
-        gipo = ((leg_a ** 2) + (leg_b ** 2)) ** 0.5
-        return render(request, 'mess_app/base.html', {'gipo': gipo})
+        hypotenuse = sqrt(pow(leg_a, 2) + pow(leg_b, 2))
+        return render(request, 'mess_app/base.html', {'hypotenuse': hypotenuse})
 
     else:
-        form = Triangle()
+        form = Triangle(request.GET)
 
-    return render(request, 'mess_app/base.html', {'form': form, 'gipo': None})
+    return render(request, 'mess_app/base.html', {'form': form, 'hypotenuse': None})

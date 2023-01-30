@@ -6,8 +6,8 @@
 </head>
 <body>
     <form action="/mess_app/triangle/" method="GET">
-        {% if gipo %}
-            <p> гипотенуза равна {{ gipo }}</p>
+        {% if hypotenuse %}
+            <p> гипотенуза равна {{ hypotenuse }}</p>
         {% else %}
             {{ form.as_p }}
         {% endif %}
