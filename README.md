@@ -1,4 +1,4 @@
-# HW_6-7-8-9_Levenets_PythonPro_Django-Catalog
+# HW_6-7-8-9-10_Levenets_PythonPro_Django-Catalog
 ========================================
 ДЗ 10. Django Forms
 Створено: 24.01.2023 21:33
