@@ -62,7 +62,7 @@ retailer.city
 -- Ссылка на репозиторий
 -- Прикрепленный скрин с диаграммой связей между таблицами (и/или наличие его в репозитории)
 -- Запрос и его SQL версия (текст или скрин в комментарии и/или в репозитории)
-
+![catalog_models.png](https://github.com/Oleksii-LEVENETS/HW_6_Levenets_PythonPro_Django-Catalog/blob/main/graph_models/catalog_models.png?raw=true)
 ========================================
 ДЗ 8. queryset methods, management commands
 Створено: 20.01.2023 21:44
