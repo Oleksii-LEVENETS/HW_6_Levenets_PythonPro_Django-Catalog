@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Update</title>
+</head>
+<body>
+    <form action="{% url 'mess_app:update-person' obj.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+    <input type="submit" value="Update Person">
+
+
+        <hr>
+<h3><a href="{% url 'mess_app:index' %}">go back to mess_app Start Page</a></h3>
+    </form>
+</body>
+</html>
