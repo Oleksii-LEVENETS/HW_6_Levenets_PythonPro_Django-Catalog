@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Create</title>
+</head>
+<body>
+
+    <form action="{% url 'mess_app:create-person' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Create Person" >
+    </form>
+    <hr>
+
+    </form>
+    <form action="{% url 'mess_app:create-person' %}" method="GET">
+        <label for="name">Enter Person's ID here:</label><br>
+        <input type="number" min=1 placeholder="123" id="name" name="id">
+        <input type="submit" value="Search Person to UPDATE">
+    </form>
+    <hr>
+
+<h3><a href="{% url 'mess_app:index' %}">go back to mess_app Start Page</a></h3>
+
+</body>
+</html>
