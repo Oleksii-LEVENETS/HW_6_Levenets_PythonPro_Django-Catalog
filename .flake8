@@ -13,6 +13,8 @@ exclude =
     tests.py,
     # There's no value in checking tests directory
     tests
-    # No need to traverse my sandbox :)
+    # No need to traverse my sandbox, forms_django_crispy.py, render_field.html :)
     sandbox.py
+    forms_django_crispy.py
+    render_field.html
 max-complexity = 10
