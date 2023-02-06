@@ -1,4 +1,35 @@
-# HW_6-7-8-9-10-11_Levenets_PythonPro_Django-Catalog
+# HW_6-7-8-9-10-11-12_Levenets_PythonPro_Django-Catalog
+========================================
+ДЗ 12. Middleware, ModelAdmin
+Створено: 31.01.2023 21:37
+Заняття 13. Middleware, Signals, ModelAdmin
+
+1. Добавить модель для логов (в том же приложении, где и форма для расчета гипотенузы). В ней должны быть поля
+- path (путь), method (GET, POST etc), timestamp.
+"Feel free to use": choices, auto_now_add, default, etc. Так же можете добавить поле что бы сохранять сами 
+переданные данные (JSONField).
+2. Добавить мидлвар LogMiddleware (написать самостоятельно) который будет обрабатывать каждый реквест 
+(кроме реквестов в админку) и сохранять соответствующие значения в базу. (process_view метод или в call метод)
+3. Добавить ModelAdmin для этой модели, чтобы вывести соответствующие данные в админке.
+Постарайтесь добавить в админку для этой модели немного информативности и функционала 
+(вывести больше полей или вместо части полей вывести кастомные атрибуты, добавить поиск и/или фильтрацию и т.д.)
+
+Логировать:
+request -> JSON (опционально)
+path
+method
+query
+body
+date-time
+https://docs.djangoproject.com/en/4.1/topics/http/middleware/
+https://medium.com/scalereal/everything-you-need-to-know-about-middleware-in-django-2a3bd3853cd6
+https://stackoverflow.com/questions/18322262/how-to-set-up-custom-middleware-in-django
+
+```bash
+    python3 manage.py runserver
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+```
 ========================================
 ДЗ 11. Django model form
 Створено: 27.01.2023 21:28

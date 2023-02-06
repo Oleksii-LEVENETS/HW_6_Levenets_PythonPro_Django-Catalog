@@ -21,9 +21,6 @@ def triangle(request):
         hypotenuse = sqrt(pow(leg_a, 2) + pow(leg_b, 2))
         return render(request, 'mess_app/hypotenuse.html', {'hypotenuse': hypotenuse})
 
-    else:
-        form = Triangle(request.GET)
-
     return render(request, 'mess_app/hypotenuse.html', {'form': form, 'hypotenuse': None})
 
 
