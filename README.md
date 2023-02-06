@@ -25,6 +25,11 @@ https://docs.djangoproject.com/en/4.1/topics/http/middleware/
 https://medium.com/scalereal/everything-you-need-to-know-about-middleware-in-django-2a3bd3853cd6
 https://stackoverflow.com/questions/18322262/how-to-set-up-custom-middleware-in-django
 
+```bash
+    python3 manage.py runserver
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+```
 ========================================
 ДЗ 11. Django model form
 Створено: 27.01.2023 21:28

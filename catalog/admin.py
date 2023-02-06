@@ -4,10 +4,8 @@ from django.contrib import admin
 
 
 # Register your models here.
-# admin.site.register(City)
 admin.site.register(Supplier)
 admin.site.register(Product)
-admin.site.register(Client)
 
 
 class ClientInLine(admin.TabularInline):
@@ -24,4 +22,10 @@ class CityAdmin(admin.ModelAdmin):
     ]
     inlines = [ClientInLine]
     list_filter = ['state']
-    search_fields = ('name', 'state', )
+    search_fields = ('name', 'state',)
+
+
+@admin.register(Client)
+class ClientAdmin(admin.ModelAdmin):
+    filter_horizontal = ('products',)
+    # raw_id_fields = ("products",)

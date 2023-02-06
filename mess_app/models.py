@@ -81,4 +81,4 @@ class Logger(models.Model):
         ordering = ['timestamp', 'path', 'method']
 
     def __str__(self):
-        return f"{self.timestamp}_{self.path} ({self.method})"
+        return f"Time: {self.timestamp}. Path: {self.path}. Method: {self.method}."
